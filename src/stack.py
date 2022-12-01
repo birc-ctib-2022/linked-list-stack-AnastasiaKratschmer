@@ -23,20 +23,39 @@ class Stack(Generic[T]):
 
     def __init__(self) -> None:
         """Create a new stack of values of type T."""
-        # FIXME: code here
+        self.link=None
 
-    def push(self, x: T) -> None:
+    def push(self, x: T) -> None:#works
         """Push x on the top of this stack."""
-        # FIXME: code here
+        self.link=Link(x,self.link)
 
-    def top(self) -> T:
+    def top(self) -> T: #works
         """Return the top of the stack."""
-        # FIXME: code here
+        if self.link:#WTF it does both the if and the else, if you have an empty list what the hell
+            return self.link.head
+        else:
+            print("lol, empty stack")
 
     def pop(self) -> T:
         """Pop the top element off the stack and return it."""
-        # FIXME: code here
+        if self:
+            self.link.head=self.link.tail.head
+        else:
+            print("you have an empty stack, too bad!!")
+        return self.link.head
 
     def is_empty(self) -> bool:
         """Test if the stack is empty."""
-        # FIXME: code here
+        if self.link is None:
+            return True
+        return False
+
+list=Stack()
+list.push(1)
+list.push(33)
+list.push(458)
+list.push(8888)
+list.pop()
+list.pop() #lol the second pop is not workning...
+print(list.top())
+print(list.is_empty())

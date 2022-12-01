@@ -21,23 +21,34 @@ class Stack(Generic[T]):
 
     def __init__(self) -> None:
         """Create a new stack of values of type T."""
-        # FIXME: code here
+        self.link=None
 
     def push(self, x: T) -> None:
         """Push x on the top of this stack."""
-        # FIXME: code here
+        self.link=Link(x,self.link)
 
     def top(self) -> T:
         """Return the top of the stack."""
-        # FIXME: code here
+        if self:
+        return self.link.head
+        else:
+            print("you have nothing on your stack, that's a shame!!")
 
     def pop(self) -> T:
         """Pop the top element off the stack and return it."""
-        # FIXME: code here
+        if self:
+        pop (self.link.head)
+        else:
+            print("you have an empty stack, too bad!!")
 
     def is_empty(self) -> bool:
         """Test if the stack is empty."""
-        # FIXME: code here
+        if self.link.head is None:
+            return True
 ```
+
+list=Link(2,Link(1,Link(2)))
+
+list.__init__()
 
 I have not written tests for you, so you have to write those yourself if you want minimal certainty that your implementation is correct.
